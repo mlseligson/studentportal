@@ -12,7 +12,7 @@ class EducationsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create education" do
     assert_difference("Education.count") do
-      post educations_url, params: { education: { degree: @education.degree, details: @education.details, end_date: @education.end_date, start_date: @education.start_date, university_name: @education.university_name } }, as: :json
+      post educations_url, params: { education: { company_name: @education.company_name, details: @education.details, end_date: @education.end_date, job_title: @education.job_title, start_date: @education.start_date } }, as: :json
     end
 
     assert_response :created
@@ -24,7 +24,7 @@ class EducationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update education" do
-    patch education_url(@education), params: { education: { degree: @education.degree, details: @education.details, end_date: @education.end_date, start_date: @education.start_date, university_name: @education.university_name } }, as: :json
+    patch education_url(@education), params: { education: { company_name: @education.company_name, details: @education.details, end_date: @education.end_date, job_title: @education.job_title, start_date: @education.start_date } }, as: :json
     assert_response :success
   end
 

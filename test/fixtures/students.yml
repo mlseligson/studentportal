@@ -7,8 +7,7 @@ one:
   phone_number: MyString
   short_bio: MyText
   linkedin_url: MyString
-  twitter: MyString
-  blog: MyString
+  website_url: MyString
   resume_url: MyString
   github: MyString
 
@@ -19,7 +18,6 @@ two:
   phone_number: MyString
   short_bio: MyText
   linkedin_url: MyString
-  twitter: MyString
-  blog: MyString
+  website_url: MyString
   resume_url: MyString
   github: MyString

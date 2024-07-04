@@ -1,4 +1,5 @@
 class Student < ApplicationRecord
-  has_many :education, :experience, :skill
-  has_one :capstone
+  has_many :experiences, foreign_key: "student_id"
+  has_many :educations, foreign_key: "student_id"
+  has_one :capstones, foreign_key: "student_id"
 end

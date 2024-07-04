@@ -1,43 +1,53 @@
 class StudentsController < ApplicationController
-  before_action :set_student, only: %i[ show update destroy ]
+  before_action :set_student, only: %i[ show edit update destroy ]
 
-  # GET /students
-  # GET /students.json
+  # GET /students or /students.json
   def index
     @students = Student.all
   end
 
-  # GET /students/1
-  # GET /students/1.json
+  # GET /students/1 or /students/1.json
   def show
   end
 
-  # POST /students
-  # POST /students.json
+  # GET /students/new
+  def new
+    @student = Student.new
+  end
+
+  # GET /students/1/edit
+  def edit
+  end
+
+  # POST /students or /students.json
   def create
     @student = Student.new(student_params)
 
-    if @student.save
-      render :show, status: :created, location: @student
-    else
-      render json: @student.errors, status: :unprocessable_entity
-    end
+
+      if @student.save
+        render :show, status: :created, location: @student
+      else
+        render json: @student.errors, status: :unprocessable_entity
+      end
+
   end
 
-  # PATCH/PUT /students/1
-  # PATCH/PUT /students/1.json
+  # PATCH/PUT /students/1 or /students/1.json
   def update
-    if @student.update(student_params)
-      render :show, status: :ok, location: @student
-    else
-      render json: @student.errors, status: :unprocessable_entity
-    end
+
+      if @student.update(student_params)
+        render :show, status: :ok, location: @student
+      else
+        render json: @student.errors, status: :unprocessable_entity
+      end
+
   end
 
-  # DELETE /students/1
-  # DELETE /students/1.json
+  # DELETE /students/1 or /students/1.json
   def destroy
     @student.destroy!
+
+    head :no_content
   end
 
   private
@@ -48,6 +58,6 @@ class StudentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def student_params
-      params.require(:student).permit(:first_name, :last_name, :email, :phone_number, :short_bio, :linkedin_url, :twitter, :blog, :resume_url, :github)
+      params.require(:student).permit(:first_name, :last_name, :email, :phone_number, :short_bio, :linkedin_url, :website_url, :resume_url, :github)
     end
 end
