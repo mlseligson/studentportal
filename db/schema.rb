@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_04_042520) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_04_052916) do
   create_table "capstones", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -22,8 +22,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_04_042520) do
   create_table "educations", force: :cascade do |t|
     t.date "start_date"
     t.date "end_date"
-    t.string "university_name"
     t.string "degree"
+    t.string "university_name"
     t.text "details"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -54,7 +54,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_04_042520) do
     t.string "phone_number"
     t.text "short_bio"
     t.string "linkedin_url"
-    t.string "website_url"
+    t.string "twitter"
+    t.string "blog"
     t.string "resume_url"
     t.string "github"
     t.datetime "created_at", null: false
