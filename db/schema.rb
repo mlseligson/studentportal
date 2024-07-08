@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_04_052916) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_08_053532) do
   create_table "capstones", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "student_id", null: false
+    t.index ["student_id"], name: "index_capstones_on_student_id"
   end
 
   create_table "educations", force: :cascade do |t|
@@ -39,12 +41,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_04_052916) do
     t.text "details"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "student_id", null: false
+    t.index ["student_id"], name: "index_experiences_on_student_id"
   end
 
   create_table "skills", force: :cascade do |t|
     t.string "skill_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "student_id", null: false
+    t.index ["student_id"], name: "index_skills_on_student_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -62,5 +68,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_04_052916) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "capstones", "students"
   add_foreign_key "educations", "students"
+  add_foreign_key "experiences", "students"
+  add_foreign_key "skills", "students"
 end

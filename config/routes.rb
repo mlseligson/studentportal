@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :educations
   resources :experiences
   resources :students
+
+  get "/students/:id/summary" => "students#summarize"
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
