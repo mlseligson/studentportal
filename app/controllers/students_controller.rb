@@ -49,7 +49,14 @@ class StudentsController < ApplicationController
 
     head :no_content
   end
-def summarize
+
+  # GET /students/1/summarize.json
+  def summarize
+    @summary = Student.joins(:experiences, :educations, :skills, :capstones).find(params[:id])
+
+    render json: @summary
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_student
@@ -58,6 +65,6 @@ def summarize
 
     # Only allow a list of trusted parameters through.
     def student_params
-      params.require(:student).permit(:first_name, :last_name, :email, :phone_number, :short_bio, :linkedin_url, :website_url, :resume_url, :github)
+      params.require(:student).permit(:first_name, :last_name, :email, :phone_number, :short_bio, :twitter, :linkedin_url, :blog, :resume_url, :github)
     end
 end
